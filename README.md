@@ -1,2 +1,2 @@
 # myPortfolio
-Portfolio web-sites about me and my work
+:herb:  A cross-browser Website of my portfolio. As easy to use as an easy thing. 
