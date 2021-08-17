@@ -7,7 +7,7 @@
 	<link rel="icon" type="image/png" href="img/favicon.png">
 	<!-- BEGIN STYLES -->
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+	<!-- <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css"> -->
 	<link rel="stylesheet" type="text/css" href="css/owl.carousel.min.css">
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
 	<link rel="stylesheet" type="text/css" href="./css/fontawesome/css/all.css">
@@ -49,6 +49,9 @@
 					<li><a href="#section-works">Works</a></li>
 					<li><a href="#section-services">Services</a></li>
 					<li><a href="#section-about">About</a></li>
+					<!-- <li><a href="#section-team">Team</a></li> -->
+					<!-- <li><a href="#section-prices">Prices</a></li> -->
+					<!-- <li><a href="#section-blog">Blog</a></li> -->
 					<li><a href="#section-contacts">Contacts</a></li>
 				</ul> <!-- /.navbar-items -->
 			</nav>
@@ -420,53 +423,6 @@
 					<div class="contacts-gradient"></div> <!-- /.contacts-gradient -->
 				</div> <!-- /.contacts-information -->
 
-
-				<div class="contacts-form">
-					<div class="spacer">
-						<div class="container-fluid">
-							<div class="row">
-								<div class="col-sm-8 col-sm-offset-2">
-									<form action="./index.php" method="POST" enctype="multipart/form-data">
-										<div class="form-fields-group">
-											<div class="form-field">
-												<label for="name">your name</label>
-												<input type="text" name="name" id="contacts-name" />
-											</div> <!-- /.form-field -->
-
-											<div class="form-field">
-												<label for="email">your e-mail</label>
-												<input type="text" name="email" id="contacts-email" />
-											</div> <!-- /.form-field -->
-										</div> <!-- /.form-fields-group -->
-
-										<div class="form-field">
-											<label for="phone">phone</label>
-											<input type="text" name="phone" id="contacts-phone" />
-										</div> <!-- /.form-field -->
-
-										<div class="form-field">
-											<label for="message">message</label>
-											<textarea name="message" id="contacts-message"></textarea>
-										</div> <!-- /.form-field -->
-
-										<button type="submit" class="btn btn-send" name="send_data" id="contacts-send">
-											<i class="fa fa-paper-plane"></i>
-											<span>send message</span>
-										</button>
-
-										<!-- <input type="submit" class="btn btn-send" id="contacts-send" name="send_data" value="send message"> -->
-										<!-- <a href="#" class="btn-send" id="contacts-send">
-											<i class="fa fa-paper-plane"></i>
-											<span>send message</span>
-										</a> -->
-
-										<!-- <div id="contacts-messages"></div> /#contacts-messages -->
-									</form>
-								</div> <!-- /.col-sm-8 col-sm-offset-2 -->
-							</div> <!-- /.row -->
-						</div> <!-- /.container-fluid -->
-					</div> <!-- /.spacer -->
-				</div> <!-- /.contacts-form -->
 			</section> <!-- /#section-contacts -->
 			<!-- END SECTION-CONTACTS -->
 
@@ -495,31 +451,6 @@
 	<script src="js/pace.min.js"></script>
 	<script src="js/wow.min.js"></script>
 	<script src="js/scripts.js"></script>
-
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script>
-    $('#contacts-send').click(function (){
-        var name = $('#contacts-name').val();
-        var email = $('#contacts-email').val();
-        var phone = $('#contacts-phone').val();
-				console.log(name, email, phone);
-
-        $.ajax({
-            url: 'telegram.php',
-            type: 'POST',
-            cache: 'false',
-            data: {'name' : name, 'email' : email, 'phone' : phone},
-            dataType: 'html',
-            success: function(data){
-                if (data == 'Ready'){
-                    console.log('Successful');
-                } else{
-									console.log(data);
-                }
-            }
-        });
-    });  
-  </script>
 	<!-- END JAVASCRIPT -->
 </body>
 </html>
