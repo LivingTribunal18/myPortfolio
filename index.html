@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8" />
-	<title>Novanoid</title>
+	<title>Novanoid 2 — Simple Minimal</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="icon" type="image/png" href="img/favicon.png">
 	<!-- BEGIN STYLES -->
@@ -18,7 +18,7 @@
 	<header id="section-home">
 		<div class="header-slider">
 			<div class="slide">
-				<img src="img/nidavellir-logos_white.png" alt="Novanoid" class="wow fadeInRightBig" data-wow-delay="0.5" />
+				<img src="img/logo.png" alt="Novanoid 2" class="wow fadeInRightBig" data-wow-delay="0.5" />
 				<p class="wow fadeInLeftBig" data-wow-delay="1">Developed for <b>perfectionists</b></p>
 			</div> <!-- /.slide -->
 
@@ -426,40 +426,41 @@
 						<div class="container-fluid">
 							<div class="row">
 								<div class="col-sm-8 col-sm-offset-2">
-									<form action="telegram.php" method="POST">
+									<form action="./index.php" method="POST" enctype="multipart/form-data">
 										<div class="form-fields-group">
 											<div class="form-field">
-												<label for="contacts-name">your name</label>
-												<input type="text" name="contacts-name" id="contacts-name" />
+												<label for="name">your name</label>
+												<input type="text" name="name" id="contacts-name" />
 											</div> <!-- /.form-field -->
 
 											<div class="form-field">
-												<label for="contacts-email">your e-mail</label>
-												<input type="text" name="contacts-email" id="contacts-email" />
+												<label for="email">your e-mail</label>
+												<input type="text" name="email" id="contacts-email" />
 											</div> <!-- /.form-field -->
 										</div> <!-- /.form-fields-group -->
 
 										<div class="form-field">
-											<label for="contacts-subject">phone</label>
-											<input type="text" name="contacts-phone" id="contacts-phone" />
+											<label for="phone">phone</label>
+											<input type="text" name="phone" id="contacts-phone" />
 										</div> <!-- /.form-field -->
 
 										<div class="form-field">
-											<label for="contacts-message">message</label>
-											<textarea name="contacts-message" id="contacts-message"></textarea>
+											<label for="message">message</label>
+											<textarea name="message" id="contacts-message"></textarea>
 										</div> <!-- /.form-field -->
 
-										<button type="submit" class="btn btn-send" id="contacts-send">
+										<button type="submit" class="btn btn-send" name="send_data" id="contacts-send">
 											<i class="fa fa-paper-plane"></i>
 											<span>send message</span>
 										</button>
 
+										<!-- <input type="submit" class="btn btn-send" id="contacts-send" name="send_data" value="send message"> -->
 										<!-- <a href="#" class="btn-send" id="contacts-send">
 											<i class="fa fa-paper-plane"></i>
 											<span>send message</span>
 										</a> -->
 
-										<div id="contacts-messages"></div> <!-- /#contacts-messages -->
+										<!-- <div id="contacts-messages"></div> /#contacts-messages -->
 									</form>
 								</div> <!-- /.col-sm-8 col-sm-offset-2 -->
 							</div> <!-- /.row -->
@@ -494,6 +495,31 @@
 	<script src="js/pace.min.js"></script>
 	<script src="js/wow.min.js"></script>
 	<script src="js/scripts.js"></script>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    $('#contacts-send').click(function (){
+        var name = $('#contacts-name').val();
+        var email = $('#contacts-email').val();
+        var phone = $('#contacts-phone').val();
+				console.log(name, email, phone);
+
+        $.ajax({
+            url: 'telegram.php',
+            type: 'POST',
+            cache: 'false',
+            data: {'name' : name, 'email' : email, 'phone' : phone},
+            dataType: 'html',
+            success: function(data){
+                if (data == 'Ready'){
+                    console.log('Successful');
+                } else{
+									console.log(data);
+                }
+            }
+        });
+    });  
+  </script>
 	<!-- END JAVASCRIPT -->
 </body>
 </html>
